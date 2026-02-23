@@ -41,12 +41,12 @@ export default function SkillCard({ techItems, title }: SkillCardProps) {
         {/* This is the rotating “card” */}
         <div
           className={[
-            'relative min-h-[180px] transition-transform duration-500 [transform-style:preserve-3d]',
+            'relative min-h-[250px] transition-transform duration-500 [transform-style:preserve-3d]',
             flipped ? '[transform:rotateY(180deg)]' : '',
           ].join(' ')}
         >
           {/* FRONT (default) */}
-          <div className=" h-full backface-hidden [backface-visibility:hidden]">
+          <div className=" h-full min-h-[250px] backface-hidden [backface-visibility:hidden]">
             <Card
               className="
               h-full

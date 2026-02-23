@@ -2,7 +2,7 @@ import { ProfileCard } from '@/components/ProfileCard';
 import { profile } from '@/lib/profile';
 import { Badge } from '@/components/ui/badge';
 import SkillCard from '../components/SkillCard';
-
+import Vert from '@/components/Timeline'
 export default function Home() {
   const fullstackSkills: string[] = [
     'TypeScript',
@@ -36,7 +36,7 @@ export default function Home() {
         aria-hidden="true"
       />
 
-      <main className="flex-1 flex flex-col items-center justify-center px-4 py-16 sm:px-6 lg:px-8">
+      <main className="flex-1 flex flex-col items-center justify-center px-4 py-16 sm:px-6 lg:px-8 max-h-none max-w-none">
         <section className="w-full" aria-label="About me">
           <ProfileCard profile={profile} />
         </section>
@@ -60,6 +60,14 @@ export default function Home() {
               title="Automation"
               techItems={automationSkills}
             ></SkillCard>
+          </div>
+        </section>
+        <section className='w-full'>
+          <h1 className="text-3xl font-bold text-orange-500 p-3 text-center">
+            My Journey
+          </h1>
+          <div className="h-max w-max rounded-2xl border border-border bg-card/60 backdrop-blur-sm shadow-2xl shadow-black/20 p-6">
+            <Vert />
           </div>
         </section>
       </main>
