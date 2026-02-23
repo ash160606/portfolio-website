@@ -2,7 +2,7 @@ import { ProfileCard } from '@/components/ProfileCard';
 import { profile } from '@/lib/profile';
 import { Badge } from '@/components/ui/badge';
 import SkillCard from '../components/SkillCard';
-import Vert from '@/components/Timeline'
+import Vert from '@/components/Timeline';
 export default function Home() {
   const fullstackSkills: string[] = [
     'TypeScript',
@@ -62,7 +62,7 @@ export default function Home() {
             ></SkillCard>
           </div>
         </section>
-        <section className='w-full'>
+        <section className="w-full">
           <h1 className="text-3xl font-bold text-orange-500 p-3 text-center">
             My Journey
           </h1>
