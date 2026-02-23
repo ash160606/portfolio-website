@@ -69,18 +69,13 @@ export function ProfileCard({ profile }: ProfileCardProps) {
           <div id="timeline-link" className="flex-1">
             <Link href="/journey" className="block w-full h-full">
               <div
-                className="
-      w-full h-full p-6 rounded-xl
-      border border-border
-      bg-muted/20 hover:bg-muted/30
-      flex flex-col items-center justify-center
-      text-center
+                className="w-full h-full p-6 rounded-xl border border-border bg-muted/20 hover:bg-muted/30 flex flex-col items-center justify-center text-center
       transition-transform duration-300
       hover:-translate-y-1 hover:scale-[1.02]
       active:scale-[0.99]
       hover:ring-2 hover:ring-red-800 hover:ring-offset-2 hover:ring-offset-background
     "
-                 role="button"
+                role="button"
                 aria-label="Go to journey timeline"
               >
                 <Route className="w-20 h-20 mb-4" />

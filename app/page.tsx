@@ -36,7 +36,7 @@ export default function Home() {
         aria-hidden="true"
       />
 
-      <main className="flex flex-col items-center justify-center px-4 py-16 sm:px-6 lg:px-8">
+      <main className="flex-1 flex flex-col items-center justify-center px-4 py-16 sm:px-6 lg:px-8">
         <section className="w-full" aria-label="About me">
           <ProfileCard profile={profile} />
         </section>
@@ -69,7 +69,7 @@ export default function Home() {
       {/* <section id="experience" aria-label="Experience"></section> */}
       {/* <section id="contact" aria-label="Contact"></section> */}
 
-      <footer className="border-t border-border py-6 text-center text-sm text-muted-foreground">
+      <footer className="border-t border-border bottom-0 text-center text-sm text-muted-foreground">
         <p>
           {'\u00A9 '}
           {new Date().getFullYear()} {profile.name}

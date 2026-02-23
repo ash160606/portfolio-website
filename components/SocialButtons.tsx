@@ -46,13 +46,13 @@ export function SocialButtons({ links }: SocialButtonsProps) {
         className="bg-orange-500 text-black hover:bg-accent/80 transition-colors"
       >
         <a
-          href={links.email}
+          href={`mailto:${links.email}`}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Send email"
         >
           <Mail />
-          Get in Touch!
+          Get in touch!
         </a>
       </Button>
     </div>
