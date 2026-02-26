@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+/* @import 'tailwindcss';
 @import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
@@ -116,6 +116,9 @@
 }
 
 @layer base {
+    html {
+        font-size: 100%;
+    }
   * {
     @apply border-border outline-ring/50;
   }
@@ -138,10 +141,4 @@
 
 .animate-zoomIn {
   animation: zoomIn 450ms cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-/* Force Chrono to respect our dark background */
-.chrono-dark,
-.chrono-dark * {
-  background-color: transparent;
-}
+} */

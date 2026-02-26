@@ -46,15 +46,15 @@ export function ProfileCard({ profile }: ProfileCardProps) {
             </div>
 
             {/* Content */}
-            <div className="flex flex-col gap-5 text-center md:text-left">
-              <div className="flex flex-col gap-2">
-                <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl text-balance">
+            <div className="flex flex-col gap-5 text-center md:text-left w-full">
+              <div className="flex flex-col gap-2 max-w-none">
+                <h1 className="text-3xl font-mono font-bold tracking-tight text-foreground md:text-4xl text-balance">
                   {'Hello, I\u2019m '}
                   <span style={{ color: 'oklch(0.7 0.1 35)' }}>
                     {profile.name}
                   </span>
                 </h1>
-                <p className="text-lg font-medium text-shadow-muted">
+                <p className="self-start items-center text-lg font-medium text-shadow-muted">
                   {profile.tagline}
                 </p>
               </div>
@@ -66,7 +66,7 @@ export function ProfileCard({ profile }: ProfileCardProps) {
               <SocialButtons links={profile.links} />
             </div>
           </div>
-          <div id="timeline-link" className="flex-1">
+          {/* <div id="timeline-link" className="flex-1">
             <Link href="/journey" className="block w-full h-full">
               <div
                 className="w-full h-full p-6 rounded-xl border border-border bg-muted/20 hover:bg-muted/30 flex flex-col items-center justify-center text-center
@@ -84,7 +84,7 @@ export function ProfileCard({ profile }: ProfileCardProps) {
                 </h2>
               </div>
             </Link>
-          </div>
+          </div> */}
         </div>
       </CardContent>
     </Card>
