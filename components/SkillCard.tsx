@@ -26,9 +26,7 @@ export default function SkillCard({ techItems, title }: SkillCardProps) {
       type="button"
       onClick={() => setFlipped((v) => !v)}
       className="
-    group
-    w-full
-    text-left
+    group w-full md:flex-1 md:min-w-60
     transition-transform duration-300
     hover:-translate-y-1
     hover:scale-[1.02]
@@ -42,7 +40,7 @@ export default function SkillCard({ techItems, title }: SkillCardProps) {
         <div
           className={[
             'relative min-h-[250px] transition-transform duration-500 [transform-style:preserve-3d]',
-            flipped ? '[transform:rotateY(180deg)]' : '',
+            flipped ? 'transform-[rotateY(180deg)]' : '',
           ].join(' ')}
         >
           {/* FRONT (default) */}
@@ -87,7 +85,7 @@ group-hover:ring-1 group-hover:ring-orange-400/30
                   {techItems.map((item) => (
                     <Badge
                       key={item}
-                      className="px-5 py-2 text-base font-semibold rounded-full"
+                      className="max-w-full px-5 py-2 text-base font-semibold rounded-full whitespace-normal wrap-break-word text-center"
                       variant={getRandomVariant()}
                     >
                       {item}

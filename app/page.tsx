@@ -3,6 +3,7 @@ import { profile } from '@/lib/profile';
 import { Badge } from '@/components/ui/badge';
 import SkillCard from '../components/SkillCard';
 import Vert from '@/components/Timeline';
+import "./globals.css"
 export default function Home() {
   const fullstackSkills: string[] = [
     'TypeScript',
@@ -25,7 +26,7 @@ export default function Home() {
     'Google Cloud Console',
   ];
   return (
-    <div className="relative flex min-h-svh flex-col scroll-smooth">
+    <div className="relative flex min-h-svh min-w-none flex-col scroll-smooth">
       {/* Subtle radial gradient background */}
       <div
         className="pointer-events-none fixed inset-0 -z-10"
@@ -36,18 +37,18 @@ export default function Home() {
         aria-hidden="true"
       />
 
-      <main className="flex-1 flex flex-col items-center justify-center px-4 py-16 sm:px-6 lg:px-8 max-h-none max-w-none">
+      <main className="flex flex-col items-center md:justify-center px-4 py-16 sm:px-6 lg:px-8 max-h-none max-w-none">
         <section className="w-full" aria-label="About me">
           <ProfileCard profile={profile} />
         </section>
         <section
-          className="w-full flex flex-col items-left justify-center gap-12 mt-16"
+          className="w-full flex flex-col justify-center gap-12 mt-16"
           aria-label="My Tech Stack"
         >
-          <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl text-balance">
+          <h1 className="self-center text-3xl text-shadow-olive-500 font-mono font-bold tracking-tight text-foreground md:text-3xl text-balance gap-4">
             {'My Tools'}
-          </h2>
-          <div className="flex justify-evenly space-x-3">
+          </h1>
+          <div className="flex flex-col gap-1 md:gap-3 md:flex-row md:justify-evenly">
             <SkillCard
               title="FullStack Development"
               techItems={fullstackSkills}
@@ -63,11 +64,13 @@ export default function Home() {
           </div>
         </section>
         <section className="w-full">
-          <h1 className="text-3xl font-bold text-orange-500 p-3 text-center">
+          <h1 className="text-3xl font-bold font-mono text-white p-3 text-center">
             My Journey
           </h1>
-          <div className="h-max w-max rounded-2xl border border-border bg-card/60 backdrop-blur-sm shadow-2xl shadow-black/20 p-6">
-            <Vert />
+          <div className="mt-6 flex-1 min-h-0">
+            <div className="h-full w-full rounded-2xl border border-border bg-card/60 backdrop-blur-sm shadow-2xl shadow-black/20 p-6">
+              <Vert />
+            </div>
           </div>
         </section>
       </main>
