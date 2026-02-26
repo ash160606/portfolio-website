@@ -16,7 +16,7 @@ export const profile: ProfileConfig = {
   name: 'Aadit Shah',
   tagline:
     'Software Development | Data Analysis & Visualization | Student @ UBC',
-  bio: 'I build clean solutions for messy problems. Data driven approaches, clean code, and even cleaner design is the way to go! I love learning new practices in the tech world and applying them to projects, be it prototype or production. I\'m excited to chat about any opportunities across Canada, and equally ready to relocate! This portfolio is a way for me to show you what I\'ve done so far. I plan to keep updating it as I gain more experience and skills, so make sure to keep coming back!',
+  bio: 'I build clean solutions for messy problems. I love learning new practices in the tech world and applying them to both prototype or production. I\'m excited to chat about any opportunities across Canada, and equally ready to relocate! This portfolio is a way for me to show you what I\'ve done so far. I plan to keep updating it as I gain more experience and skills, so make sure to keep coming back!',
   image: '/me.png',
   imageAlt: 'Portrait photo of Aadit Shah',
   email: 'shahaadit2016@gmail.com',

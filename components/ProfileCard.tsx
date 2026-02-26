@@ -54,12 +54,12 @@ export function ProfileCard({ profile }: ProfileCardProps) {
                     {profile.name}
                   </span>
                 </h1>
-                <p className="self-start items-center text-lg font-medium text-shadow-muted">
+                <p className="self-start items-center text-2xl font-medium text-shadow-muted">
                   {profile.tagline}
                 </p>
               </div>
 
-              <p className="max-w-lg leading-relaxed text-muted-foreground">
+              <p className="self-start max-w-lg text-lg leading-relaxed text-muted-foreground">
                 {profile.bio}
               </p>
 

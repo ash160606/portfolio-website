@@ -9,21 +9,29 @@ export default function Home() {
     'TypeScript',
     'React',
     'Node.js',
-    'Express.js',
+    'REST APIs',
+    'TailwindCSS (This website!!)',
+    'TDD (Test Driven Development)'
+
   ];
   const machineLearningSkills: string[] = [
     'Python',
     'scikit-learn',
     'pandas',
     'NumPy',
-    'ETL Worfklows (SQL)',
+    'PyTorch',
+    'seaborn/Matplotlib',
+    'Linear Regression',
+    'Classification Models'
   ];
   // const machineLearningSkills : string[] = ["Python"];
   const automationSkills: string[] = [
     'n8n',
     'Zapier',
-    'JS Based Web-Scripts',
+    'OAuthV2 Integration',
     'Google Cloud Console',
+    'GMail Automations',
+    'WebScraping'
   ];
   return (
     <div className="relative flex min-h-svh min-w-none flex-col scroll-smooth">
