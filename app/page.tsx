@@ -10,8 +10,9 @@ export default function Home() {
     'React',
     'Node.js',
     'REST APIs',
+    'Next.js(This website!!)',
     'TailwindCSS (This website!!)',
-    'TDD (Test Driven Development)'
+    'TDD (Test Driven Development)',
 
   ];
   const machineLearningSkills: string[] = [
