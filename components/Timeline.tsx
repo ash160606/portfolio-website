@@ -14,6 +14,7 @@ import {
   Layers,
   Drama,
   CirclePile,
+  Globe
 } from 'lucide-react';
 import JourneyItem from '@/components/JourneyItem';
 export default function VTimeline() {
@@ -102,9 +103,9 @@ export default function VTimeline() {
       </JourneyItem>
       <JourneyItem
         date="Feb 2026 - Current"
-        title="ONGOING WORK - DraMake OS"
-        subtitle="Prototyping a white labelled automation service for a micro-drama production company"
-        icon={<Drama />}
+        title="ONGOING WORK - News-Views"
+        subtitle="Building a fullstack web app to visualize global news stories as an interactive map — tracking which countries are involved in each story"
+        icon={<Globe />}
       >
         Automate script upload and AI analysis through n8n, Use LLM to fill out
         contract PDF templates and automatically email to parties involved,
