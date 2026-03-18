@@ -14,7 +14,7 @@ import {
   Layers,
   Drama,
   CirclePile,
-  Globe
+  Globe,
 } from 'lucide-react';
 import JourneyItem from '@/components/JourneyItem';
 export default function VTimeline() {
@@ -107,10 +107,9 @@ export default function VTimeline() {
         subtitle="Building a fullstack web app to visualize global news stories as an interactive map — tracking which countries are involved in each story"
         icon={<Globe />}
       >
-        Automate script upload and AI analysis through n8n, Use LLM to fill out
-        contract PDF templates and automatically email to parties involved,
-        streamline daily budget tracking to address critical pain points in the
-        micro drama production industry.
+        Gather news stories from various media sources, use NLP to rate tone and
+        extract key attributes, and then visualize them as graphs on an
+        interactive map to be able to keep track of global event developments
       </JourneyItem>
     </VerticalTimeline>
   );

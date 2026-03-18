@@ -3,7 +3,7 @@ import { profile } from '@/lib/profile';
 import { Badge } from '@/components/ui/badge';
 import SkillCard from '../components/SkillCard';
 import Vert from '@/components/Timeline';
-import "./globals.css"
+import './globals.css';
 export default function Home() {
   const fullstackSkills: string[] = [
     'TypeScript',
@@ -13,7 +13,6 @@ export default function Home() {
     'Next.js(This website!!)',
     'TailwindCSS (This website!!)',
     'TDD (Test Driven Development)',
-
   ];
   const machineLearningSkills: string[] = [
     'Python',
@@ -23,7 +22,7 @@ export default function Home() {
     'PyTorch',
     'seaborn/Matplotlib',
     'Linear Regression',
-    'Classification Models'
+    'Classification Models',
   ];
   // const machineLearningSkills : string[] = ["Python"];
   const automationSkills: string[] = [
@@ -32,7 +31,7 @@ export default function Home() {
     'OAuthV2 Integration',
     'Google Cloud Console',
     'GMail Automations',
-    'WebScraping'
+    'WebScraping',
   ];
   return (
     <div className="relative flex min-h-svh min-w-none flex-col scroll-smooth">
