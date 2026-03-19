@@ -2,6 +2,7 @@ export type ProfileConfig = {
   name: string;
   tagline: string;
   bio: string;
+  bioShort : string;
   image: string;
   imageAlt: string;
   email: string;
@@ -15,8 +16,9 @@ export type ProfileConfig = {
 export const profile: ProfileConfig = {
   name: 'Aadit Shah',
   tagline:
-    'Software Development | Data Analysis & Visualization | Student @ UBC',
+    'Software Development | Data Analysis & Visualization | Student @ UBC | Science Co-op Program',
   bio: "I build clean solutions for messy problems. Excited to chat about any opportunities across Canada, and equally ready to relocate! This portfolio is a way for me to show you what I've done so far. I plan to keep updating it as I gain more experience and skills, so make sure to keep coming back!",
+  bioShort: "I build clean solutions for messy problems! Open to work across Canada, and would LOVE to discuss anything tech",
   image: '/me.png',
   imageAlt: 'Portrait photo of Aadit Shah',
   email: 'shahaadit2016@gmail.com',

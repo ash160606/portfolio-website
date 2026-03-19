@@ -60,7 +60,10 @@ export function ProfileCard({ profile }: ProfileCardProps) {
               </div>
 
               <p className="self-start max-w-lg text-lg leading-relaxed text-muted-foreground">
-                {profile.bio}
+                {/* Mobile bio */}
+                <span className="md:hidden">{profile.bioShort}</span>
+                {/* Desktop bio */}
+                <span className="hidden md:inline">{profile.bio}</span>
               </p>
 
               <SocialButtons links={profile.links} />
