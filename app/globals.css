@@ -1,93 +1,444 @@
 @import 'tailwindcss';
-@import 'tw-animate-css';
 
-@custom-variant dark (&:is(.dark *));
+/* ─────────────────────────────────────────────────────────────────────────
+   Lab Paper
 
-:root {
-  --background: oklch(0.13 0.005 260);
-  --foreground: oklch(0.93 0 0);
-  --card: oklch(0.18 0.005 260);
-  --card-foreground: oklch(0.93 0 0);
-  --popover: oklch(0.18 0.005 260);
-  --popover-foreground: oklch(0.93 0 0);
-  --primary: oklch(0.93 0 0);
-  --primary-foreground: oklch(0.13 0.005 260);
-  --secondary: oklch(0.22 0.005 260);
-  --secondary-foreground: oklch(0.85 0 0);
-  --muted: oklch(0.22 0.005 260);
-  --muted-foreground: oklch(0.6 0 0);
-  --accent: oklch(0.7 0.1 35);
-  --accent-foreground: oklch(0.7 0.1 35);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.25 0.005 260);
-  --input: oklch(0.25 0.005 260);
-  --ring: oklch(0.65 0.15 185);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.75rem;
-  --sidebar: oklch(0.15 0.005 260);
-  --sidebar-foreground: oklch(0.93 0 0);
-  --sidebar-primary: oklch(0.65 0.15 185);
-  --sidebar-primary-foreground: oklch(0.13 0.005 260);
-  --sidebar-accent: oklch(0.22 0.005 260);
-  --sidebar-accent-foreground: oklch(0.93 0 0);
-  --sidebar-border: oklch(0.25 0.005 260);
-  --sidebar-ring: oklch(0.65 0.15 185);
+   Colour is data encoding, not decoration. The ground is seaborn's figure
+   background; panels sit LIGHTER than the ground, the way a plot area sits on
+   a figure. The four pastels are seaborn's `pastel` palette and are used only
+   as fills — never as text.
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* `static` forces every token to be emitted at :root. Tailwind v4 otherwise
+   tree-shakes theme variables no generated utility references, which would
+   silently blank out any `var(--color-key-*)` written inside an inline style
+   or a hand-authored rule below. */
+@theme static {
+  /* surfaces & ink */
+  --color-ground: #efeff4;
+  --color-panel: #fbfbfd;
+  --color-ink: #1b1b22;
+  --color-muted: #5c5c6b;
+  --color-rule: #d8d8e2;
+
+  /* category keys — seaborn `pastel`; fills only, never text */
+  --color-key-blue: #a1c9f4;
+  --color-key-green: #8de5a1;
+  --color-key-violet: #d0bbff;
+  --color-key-salmon: #ff9f9b;
+
+  /* geometry — classical means near-zero radius */
+  --radius-plate: 2px;
+
+  /* measure */
+  --container-measure: 34rem;
+  --container-page: 72rem;
+
+  /* motion */
+  --animate-rise: rise 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
 }
 
+/* `inline` because these values are var()s injected by next/font on <html>;
+   the utility must embed the var so it resolves at the consuming element. */
 @theme inline {
-  --font-sans: 'Inter', 'Inter Fallback', sans-serif;
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+  --font-display:
+    var(--font-newsreader), 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+  --font-sans:
+    var(--font-plex-sans), ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+    sans-serif;
+  --font-mono:
+    var(--font-plex-mono), ui-monospace, 'SF Mono', 'Cascadia Mono', Consolas,
+    monospace;
+}
+
+/* Typed so `var(--gap-months) * <length>` is arithmetic-safe and falls back
+   cleanly when the property is absent. */
+@property --gap-months {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 0;
+}
+
+/* The intro gate's exit. Top level rather than in @theme, since these aren't
+   referenced through an --animate-* token the way `rise` is. The 22% mark is
+   the anticipation beat and must stay in step with WIND_FRACTION in
+   lib/intro.ts, which is where the globe's reverse spin is timed. */
+@keyframes intro-launch {
+  0%,
+  22% {
+    transform: translate3d(0, 0, 0);
+    animation-timing-function: cubic-bezier(0.22, 0.85, 0.28, 1);
+  }
+  100% {
+    transform: translate3d(0, -108%, 0);
+  }
+}
+
+@keyframes intro-squash {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    animation-timing-function: cubic-bezier(0.32, 0, 0.67, 0.16);
+  }
+  22% {
+    transform: translate3d(0, 2.2%, 0) scale(0.95); /* crouch */
+    animation-timing-function: cubic-bezier(0.18, 0.9, 0.24, 1);
+  }
+  100% {
+    transform: translate3d(0, -4%, 0) scale(1.05); /* content leads the launch */
+  }
 }
 
 @layer base {
+  /* Tailwind v4 defaults borders to currentColor, which would render every
+     hairline in this design as ink-black. Pin it to the rule colour. */
+  *,
+  ::before,
+  ::after {
+    border-color: var(--color-rule);
+  }
+
   html {
-    font-size: 80%;
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
   }
-  * {
-    @apply border-border outline-ring/50;
-  }
+
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--color-ground);
+    color: var(--color-ink);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-key-blue);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  /* ── the intro gate ──────────────────────────────────────────────────── */
+
+  /* Stamped pre-paint by the inline script in app/layout.tsx, so the scroll
+     lock and the returning-visitor skip both land before the first frame. */
+  html[data-intro='open'] {
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+  html[data-intro='skip'] #intro {
+    display: none;
+  }
+
+  /* Deliberately no `display` declaration here — the <noscript> rule in
+     app/layout.tsx sets display:none, and unlayered styles beat every layer. */
+  #intro {
+    position: fixed;
+    inset: 0;
+    z-index: 100; /* clears the z-50 sticky SiteHeader */
+    background-color: var(--color-ground);
+    opacity: 1;
+  }
+  #intro[data-phase='exiting'] {
+    pointer-events: none;
+  }
+
+  /* The globe is anchored to the screen, not laid out in the text flow: it
+     fills the bottom of the viewport and is allowed to bleed off the bottom
+     and the sides. The copy is pinned near the top, and the globe rises into
+     it. Three independent knobs, all here: */
+  .intro-stage {
+    --intro-title: clamp(3.25rem, 13vw, 8.5rem);
+    /* Diameter. Deliberately allowed to exceed the viewport width. */
+    --intro-globe: min(150vw, 62rem, 92svh);
+    /* Where the sphere's top edge sits. THIS is the overlap knob — lower it to
+       push the globe further up into the text, raise it to pull it clear. */
+    --intro-globe-top: 30svh;
+    /* Where the text block starts. */
+    --intro-copy-top: 12svh;
+  }
+
+  .intro-copy {
+    position: absolute;
+    inset-inline: 0;
+    top: var(--intro-copy-top);
+    padding-inline: 1.5rem;
+    text-align: center;
+  }
+
+  .intro-title {
+    font-size: var(--intro-title);
+  }
+
+  .intro-globe {
+    position: absolute;
+    inset-inline: 0;
+    top: var(--intro-globe-top);
+    /* In front of the copy. Ink text on a dark sphere would simply vanish the
+       other way round; occlusion is what reads as depth. */
+    z-index: 1;
+    width: var(--intro-globe);
+    margin-inline: auto;
+  }
+
+  /* City labels, pinned to the globe.
+
+     cobe turns every marker carrying an `id` into a 1x1px element with
+     `anchor-name: --cobe-{id}`, and maintains a `--cobe-visible-{id}` custom
+     property on :root — set to `N` while the point faces the camera, and
+     DELETED when it rotates behind the globe.
+
+     That makes the opacity below do double duty: unset resolves to the `0`
+     fallback, while `N` is not a valid <alpha-value>, so the declaration goes
+     invalid at computed-value time and opacity falls back to its initial 1.
+     Deliberate on cobe's part, and it gives us the limb fade for free. */
+  .intro-label {
+    position: absolute;
+    left: anchor(right);
+    top: anchor(center);
+    translate: 0.5rem -50%;
+    padding: 0.15rem 0.4rem;
+    border-radius: var(--radius-plate);
+    background-color: var(--color-ground);
+    color: var(--color-ink);
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: opacity 320ms ease;
+  }
+
+  /* Three explicit rules rather than var() indirection — position-anchor
+     through a custom property is far less well-trodden, and there are three. */
+  .intro-label[data-city='ahmedabad'] {
+    position-anchor: --cobe-ahmedabad;
+    opacity: var(--cobe-visible-ahmedabad, 0);
+  }
+  .intro-label[data-city='saskatoon'] {
+    position-anchor: --cobe-saskatoon;
+    opacity: var(--cobe-visible-saskatoon, 0);
+  }
+  .intro-label[data-city='vancouver'] {
+    position-anchor: --cobe-vancouver;
+    opacity: var(--cobe-visible-vancouver, 0);
+  }
+
+  /* The names live on the globe, so the line beneath it is only a fallback:
+     for browsers without anchor positioning, or when the globe failed. */
+  .intro-cities-fallback {
+    display: none;
+    /* Above the globe: the sphere now covers the lower screen, and on the
+       browsers that need this line it would otherwise sit behind it. */
+    position: relative;
+    z-index: 2;
+  }
+  .intro-cities-fallback[data-force] {
+    display: block;
+  }
+  @supports not (anchor-name: --a) {
+    .intro-label {
+      display: none;
+    }
+    .intro-cities-fallback {
+      display: block;
+    }
+  }
+
+  /* The exit: wind up, then leap. The overlay holds perfectly still through
+     the anticipation — it is inset:0, so moving it down even slightly would
+     expose a sliver of the sticky SiteHeader and read as a glitch. The crouch
+     lives entirely in .intro-stage, which is inset and can never show an edge. */
+  @media (prefers-reduced-motion: no-preference) {
+    #intro[data-phase='exiting'] {
+      animation: intro-launch var(--intro-exit, 620ms) both;
+    }
+    #intro[data-phase='exiting'] .intro-stage {
+      animation: intro-squash var(--intro-exit, 620ms) both;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #intro {
+      transition: opacity var(--intro-exit, 160ms) linear;
+    }
+    #intro[data-phase='exiting'] {
+      opacity: 0;
+    }
+  }
+
+  /* The dismiss button fills the viewport, so the global 2px focus ring would
+     draw a box around the entire screen. There is no longer a visible cue to
+     move it onto, and any keypress dismisses the gate, so a focused keyboard
+     user is never stranded without an exit. */
+  #intro button:focus-visible {
+    outline: none;
+  }
+
+  /* ── shared: a plotted point ─────────────────────────────────────────── */
+  .key-dot {
+    display: inline-block;
+    flex: none;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 9999px;
+    background: var(--point, var(--color-panel));
+    box-shadow: 0 0 0 1.5px var(--color-ink);
+  }
+
+  /* ── hero: page-load stagger ─────────────────────────────────────────── */
+  @media (prefers-reduced-motion: no-preference) {
+    .rise {
+      animation: var(--animate-rise);
+      animation-delay: calc(var(--i, 0) * 90ms);
+    }
+  }
+
+  /* ── the plotted series ──────────────────────────────────────────────── */
+  .series {
+    --spine: 0.375rem; /* x of the point's left edge */
+    --dot: 0.625rem;
+    --cap: 0.55rem; /* y from content start to point centre */
+    --lead-base: 1.5rem;
+    --lead-step: 0.35rem; /* per elapsed month */
+    --lead-max: 2.5rem;
+    --tick-lead: 2.5rem; /* extra room above a year tick */
+    position: relative;
+    list-style: none;
+  }
+
+  .milestone {
+    --tick: 0px;
+    --lead: calc(
+      var(--lead-base) + var(--tick) +
+        min(var(--gap-months, 0) * var(--lead-step), var(--lead-max))
+    );
+    --point-y: calc(var(--lead) + var(--cap));
+    position: relative;
+    padding-top: var(--lead);
+    padding-left: calc(var(--spine) + var(--dot) + 1.25rem);
+  }
+
+  .milestone[data-tick] {
+    --tick: var(--tick-lead);
+  }
+
+  /* the point */
+  .milestone::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    left: var(--spine);
+    top: calc(var(--point-y) - var(--dot) / 2);
+    width: var(--dot);
+    height: var(--dot);
+    border-radius: 9999px;
+    background: var(--point, var(--color-panel));
+    box-shadow: 0 0 0 1.5px var(--color-ink);
+  }
+
+  /* one spine segment per row; consecutive segments join into a single line */
+  .milestone::after {
+    content: '';
+    position: absolute;
+    left: calc(var(--spine) + var(--dot) / 2 - 0.5px);
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--color-ink);
+  }
+  .milestone:first-child::after {
+    top: var(--point-y);
+  }
+  .milestone:last-child::after {
+    bottom: auto;
+    height: var(--point-y);
+  }
+
+  /* axis tick: year label + hairline, drawn above the row's own lead */
+  .milestone__year {
+    position: absolute;
+    left: 0;
+    top: calc(var(--lead) - var(--tick-lead));
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    color: var(--color-ink);
+  }
+
+  .milestone__rule {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(var(--lead) - var(--tick-lead) + 1.4rem);
+    height: 1px;
+    background: var(--color-rule);
+  }
+
+  .milestone__date {
+    display: block;
+    line-height: 1.1rem;
+  }
+
+  @media (width >= 48rem) {
+    .series {
+      --spine: 10.5rem;
+      --cap: 0.85rem;
+      --lead-base: 1.75rem;
+      --lead-step: 0.6rem;
+      --lead-max: 4rem;
+    }
+
+    /* the date lifts into a right-aligned gutter — this is what makes the
+       column read as a chart axis rather than a list */
+    .milestone__date {
+      position: absolute;
+      left: 0;
+      top: var(--lead);
+      width: 9.25rem;
+      text-align: right;
+      line-height: 1.7rem;
+    }
+
+    .milestone__year {
+      width: 9.25rem;
+      text-align: right;
+    }
+  }
+
+  /* ── scroll reveal ───────────────────────────────────────────────────── */
+  @media (prefers-reduced-motion: no-preference) {
+    [data-reveal] .milestone {
+      transition:
+        opacity 520ms ease-out,
+        transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+      transition-delay: calc(var(--i, 0) * 65ms);
+    }
+    [data-reveal='false'] .milestone {
+      opacity: 0;
+      transform: translateY(10px);
+    }
   }
 }
