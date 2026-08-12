@@ -113,6 +113,22 @@
     scroll-behavior: smooth;
   }
 
+  /* The scrollbar is chrome, not data — the page still scrolls, it just isn't
+     drawn. Firefox/Chromium honour `scrollbar-width`; the pseudo-element is
+     for older WebKit, and it must carry `display:none` AND zero size because
+     Safari ignores one or the other depending on version. */
+  html,
+  body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  *::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
   body {
     background-color: var(--color-ground);
     color: var(--color-ink);
