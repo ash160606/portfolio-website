@@ -60,6 +60,7 @@
   --font-mono:
     var(--font-plex-mono), ui-monospace, 'SF Mono', 'Cascadia Mono', Consolas,
     monospace;
+  --font-script: var(--font-script-local), 'Segoe Script', cursive;
 }
 
 /* Typed so `var(--gap-months) * <length>` is arithmetic-safe and falls back
@@ -186,7 +187,7 @@
      and the sides. The copy is pinned near the top, and the globe rises into
      it. Three independent knobs, all here: */
   .intro-stage {
-    --intro-title: clamp(3.25rem, 13vw, 8.5rem);
+    --intro-title: clamp(3.75rem, 14vw, 9.5rem);
     /* Diameter. Deliberately allowed to exceed the viewport width. */
     --intro-globe: min(150vw, 62rem, 92svh);
     /* Where the sphere's top edge sits. THIS is the overlap knob — lower it to

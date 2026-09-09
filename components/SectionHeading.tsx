@@ -5,10 +5,10 @@ type SectionHeadingProps = {
 
 export function SectionHeading({ title, id }: SectionHeadingProps) {
   return (
-    <header className="border-b border-rule pb-4">
+    <header className="border-b border-rule pb-5">
       <h2
         id={id}
-        className="font-display text-3xl leading-tight font-medium tracking-[-0.01em] text-ink sm:text-4xl"
+        className="font-script text-4xl leading-[1.15] font-semibold tracking-normal text-ink sm:text-5xl"
       >
         {title}
       </h2>

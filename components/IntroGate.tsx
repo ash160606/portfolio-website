@@ -136,7 +136,7 @@ export default function IntroGate() {
         <div className="intro-copy">
           <p
             id="intro-title"
-            className="intro-title font-display leading-[0.9] font-medium tracking-[-0.03em] text-ink"
+            className="intro-title font-script leading-[1.05] font-semibold tracking-normal text-ink"
           >
             {'I’m Aadit'}
           </p>
