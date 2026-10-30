@@ -165,7 +165,11 @@ export default function IntroGate() {
         <div className="intro-globe">
           {globeFailed ? (
             // Keeps the composition from collapsing if WebGL is unavailable.
-            <div className="aspect-square w-full rounded-full border border-rule" />
+            // data-drawn so the swipe reveal still plays instead of leaving it hidden.
+            <div
+              data-drawn=""
+              className="aspect-square w-full rounded-full border border-rule"
+            />
           ) : (
             <IntroGlobe ref={globeRef} onFail={() => setGlobeFailed(true)} />
           )}

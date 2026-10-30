@@ -70,6 +70,12 @@ export default function IntroGlobe({ onFail, ref }: IntroGlobeProps) {
     let resizeTimer = 0;
     let builtSize = 0;
 
+    // Starts the CSS swipe reveal in globals.css. Lives on the host, which
+    // teardown() empties but never removes, so a resize rebuild won't replay it.
+    const markDrawn = () => {
+      if (!('drawn' in host.dataset)) host.dataset.drawn = '';
+    };
+
     const teardown = () => {
       if (raf) {
         cancelAnimationFrame(raf);
@@ -137,7 +143,9 @@ export default function IntroGlobe({ onFail, ref }: IntroGlobeProps) {
         // One frame, drawn after layout has settled. No loop at all.
         raf = requestAnimationFrame(() => {
           raf = 0;
-          if (!disposed) globe?.update(state);
+          if (disposed || !globe) return;
+          globe.update(state);
+          markDrawn();
         });
         return;
       }
@@ -174,6 +182,7 @@ export default function IntroGlobe({ onFail, ref }: IntroGlobeProps) {
         // replaces isn't knowable from its signature, and guessing wrong means
         // the markers vanish on frame two.
         globe.update(state);
+        markDrawn();
       };
 
       raf = requestAnimationFrame(frame);
