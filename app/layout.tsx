@@ -1,6 +1,10 @@
 import type { Metadata, Viewport } from 'next';
-import { Newsreader, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
-import localFont from 'next/font/local';
+import {
+  Newsreader,
+  IBM_Plex_Sans,
+  IBM_Plex_Mono,
+  Strait,
+} from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { profile } from '@/lib/profile';
 import './globals.css';
@@ -19,15 +23,12 @@ const plexSans = IBM_Plex_Sans({
   variable: '--font-plex-sans',
 });
 
-// Dancing Script ships one variable file covering the whole wght axis, so the
-// range goes in `weight` rather than one entry per cut. The variable is named
-// `--font-script-local` so the `--font-script` theme token in globals.css can
-// wrap it without self-referencing.
-const dancingScript = localFont({
-  src: './fonts/DancingScript-VariableFont_wght.ttf',
-  weight: '400 700',
+// Strait ships a single 400 cut.
+const strait = Strait({
+  subsets: ['latin'],
+  weight: '400',
   display: 'swap',
-  variable: '--font-script-local',
+  variable: '--font-strait',
 });
 
 // IBM Plex Mono has no variable cut, so `weight` is mandatory here.
@@ -68,7 +69,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${newsreader.variable} ${plexSans.variable} ${plexMono.variable} ${dancingScript.variable}`}
+      className={`${newsreader.variable} ${plexSans.variable} ${plexMono.variable} ${strait.variable}`}
     >
       <body className="font-sans antialiased">
         {/* Runs during HTML parsing, before #intro has even been created, so a

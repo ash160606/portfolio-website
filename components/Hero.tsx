@@ -29,7 +29,7 @@ export function Hero() {
           </p>
 
           <h1
-            className="rise mt-4 font-script text-[clamp(3.5rem,10.5vw,7rem)] leading-[1.05] font-semibold tracking-normal text-balance text-ink"
+            className="rise mt-4 font-title text-[clamp(3.5rem,10.5vw,7rem)] leading-[1.05] tracking-normal text-balance text-ink"
             style={{ '--i': 1 } as React.CSSProperties}
           >
             {profile.name}

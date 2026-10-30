@@ -8,7 +8,7 @@ export function SectionHeading({ title, id }: SectionHeadingProps) {
     <header className="border-b border-rule pb-5">
       <h2
         id={id}
-        className="font-script text-4xl leading-[1.15] font-semibold tracking-normal text-ink sm:text-5xl"
+        className="font-title text-4xl leading-[1.15] tracking-normal text-ink sm:text-5xl"
       >
         {title}
       </h2>

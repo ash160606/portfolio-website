@@ -60,7 +60,7 @@
   --font-mono:
     var(--font-plex-mono), ui-monospace, 'SF Mono', 'Cascadia Mono', Consolas,
     monospace;
-  --font-script: var(--font-script-local), 'Segoe Script', cursive;
+  --font-title: var(--font-strait), 'Arial Narrow', sans-serif;
 }
 
 /* Typed so `var(--gap-months) * <length>` is arithmetic-safe and falls back
