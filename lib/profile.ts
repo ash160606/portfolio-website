@@ -8,6 +8,7 @@ export type ProfileConfig = {
   email: string;
   links: {
     linkedin: string;
+    github: string;
     resume: string;
     email: string;
   };
@@ -25,6 +26,7 @@ export const profile: ProfileConfig = {
   email: 'shahaadit2016@gmail.com',
   links: {
     linkedin: 'https://www.linkedin.com/in/ashah16',
+    github: 'https://github.com/ash160606',
     resume: '/resume.pdf',
     email: 'shahaadit2016@gmail.com',
   },

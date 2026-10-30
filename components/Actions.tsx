@@ -1,4 +1,4 @@
-import { Linkedin, FileText, Mail } from 'lucide-react';
+import { Linkedin, Github, FileText, Mail } from 'lucide-react';
 import type { ProfileConfig } from '@/lib/profile';
 
 type ActionsProps = {
@@ -11,7 +11,7 @@ const base =
 export function Actions({ links }: ActionsProps) {
   return (
     <div className="flex flex-wrap items-center gap-3">
-      {/* One primary action; the other two are quiet by comparison. */}
+      {/* One primary action; the others are quiet by comparison. */}
       <a
         href={`mailto:${links.email}`}
         aria-label="Send email"
@@ -37,6 +37,16 @@ export function Actions({ links }: ActionsProps) {
       >
         <Linkedin aria-hidden className="size-4" strokeWidth={1.75} />
         LinkedIn
+      </a>
+      <a
+        href={links.github}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Visit GitHub profile"
+        className={`${base} border border-rule text-ink hover:border-ink`}
+      >
+        <Github aria-hidden className="size-4" strokeWidth={1.75} />
+        GitHub
       </a>
     </div>
   );

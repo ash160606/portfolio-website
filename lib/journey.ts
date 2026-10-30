@@ -85,7 +85,7 @@ export const milestones: Milestone[] = [
     start: '2025-06',
     title: 'Built a personal tool - the UBC Email Summarizer',
     subtitle:
-      'Developed a web automation to solve a problem in my own life, hosted it on Google Cloud Connsole',
+      'Developed a web automation to solve a problem in my own life, hosted it on Google Cloud Console',
     body: 'Applying what I learnt from a year of Computer Science and experimenting in my own time',
     icon: Wrench,
     category: 'automation',
@@ -126,14 +126,13 @@ export const milestones: Milestone[] = [
     category: 'fullstack',
   },
   {
-    // Authored title was 'ONGOING WORK - News-Views'. See the note above.
     id: 'news-views',
     date: 'May 2026 - Current',
     start: '2026-05',
     title: 'Software Developer @ CoDHerS',
     subtitle:
       'Web + Game Dev Co-op Position',
-    body: 'Building a digital platform for minoritized languages. With a focus on Uyghur, we use Typescript game libraries, a custom Django backend to serve dynamic assets with full CRUD operations enabled through a GUI for non technical contributors',
+    body: 'Building an educational web game for minoritized language learners and archivists. Cut asset load times by 60% with Cloudflare R2 edge caching, reduced PixiJS memory use from 1.05 GB to 380 MB, and ported the app to iOS with Capacitor.js.',
     icon: Globe,
     category: 'ongoing',
   },
